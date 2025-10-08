@@ -1,0 +1,262 @@
+.space-estimator {
+    max-width: 1000px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.estimator-header {
+    display: none; /* Hide the old header as we're using the new design */
+}
+
+.estimator-steps {
+    display: flex;
+    background: #FFFFFF;
+    color: #000000;
+    padding: 20px;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+}
+
+.step-arrow {
+    font-size: 20px;
+    margin: 0 20px;
+    color: #000000;
+}
+
+.step-arrow::after {
+    content: "▶";
+    font-size: 16px;
+}
+
+.estimator-content {
+    display: flex;
+    min-height: 500px;
+}
+
+.step-1 {
+    background: white;
+    padding: 20px;
+    flex: 0 0 35%;
+    border-right: 1px solid #F0F0F0;
+}
+
+.step-2 {
+    background: white;
+    padding: 20px;
+    flex: 0 0 65%;
+}
+
+.room {
+    padding: 15px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    background: #F8F8F8;
+    border: none;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color: #333333;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.room:hover {
+    background: #EEEEEE;
+}
+
+.room.selected {
+    background: #FF7F50;
+    color: white;
+    box-shadow: 0 2px 6px rgba(255,127,80,0.3);
+}
+
+.room-space {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#items {
+    background: white;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.item-row {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #F0F0F0;
+    color: #333333;
+    font-size: 14px;
+    min-height: 60px;
+}
+
+.item-row:nth-child(odd) {
+    border-right: 1px solid #F0F0F0;
+}
+
+.item-image {
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.item-image img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.item-name {
+    flex-grow: 1;
+    font-size: 14px;
+    color: #333333;
+    margin-right: 15px;
+}
+
+.item-quantity {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.qty-minus, .qty-plus {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent !important;
+    cursor: pointer;
+    font-size: 22px !important;
+    font-weight: 700;
+    color: #000000 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.qty-minus:hover, .qty-plus:hover {
+    background: transparent;
+    color: #111111;
+}
+
+.qty-minus {
+    border-radius: 6px 0 0 6px;
+    border-right: none;
+}
+
+.qty-plus {
+    border-radius: 0 6px 6px 0;
+    border-left: none;
+}
+
+.qty-input {
+    width: 30px !important;
+    height: 24px;
+    padding: 0 !important;
+    text-align: center;
+    border: 1px solid #DDDDDD;
+    border-left: none;
+    border-right: none;
+    background: white;
+    color: #333333;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.total-space {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    color: #FF0000;
+    font-size: 18px;
+    font-weight: bold;
+    border-top: 2px solid #F0F0F0;
+}
+
+.total-space span {
+    color: #FF0000;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .space-estimator {
+        margin: 10px;
+        max-width: none;
+    }
+    
+    .estimator-steps {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .step-arrow {
+        margin: 10px 0;
+        transform: rotate(90deg);
+    }
+    
+    .estimator-content {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .step-1 {
+        border-right: none;
+        border-bottom: 1px solid #F0F0F0;
+    }
+    
+    #items {
+        grid-template-columns: 1fr;
+        max-height: none;
+    }
+    
+    .item-row:nth-child(odd) {
+        border-right: none;
+    }
+    
+    .room {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .item-row {
+        padding: 12px 15px;
+        min-height: 50px;
+    }
+    
+    .item-image img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .qty-minus, .qty-plus {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+    
+    .qty-input {
+        width: 45px;
+        height: 28px;
+        font-size: 13px;
+    }
+}
